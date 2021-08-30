@@ -37,7 +37,7 @@ const Formulario = () => {
                 <legend>Bebidas por categoría</legend>
             </fieldset>
             <div className="row">
-                <div className="col-4">   
+                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mt-2">   
                     <input 
                         name="nombre"
                         className="form-control"
@@ -47,7 +47,7 @@ const Formulario = () => {
                     />
                 </div>
 
-                <div className="col-4">   
+                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mt-2">   
                     <select
                         className="form-control"
                         name="categorias"
@@ -63,7 +63,7 @@ const Formulario = () => {
                     </select>
                    
                 </div>
-                <div className="col-4">   
+                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mt-2">   
                 <input 
                         className="btn btn-block btn-primary"
                         type="submit"

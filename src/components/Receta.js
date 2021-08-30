@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import { Container } from '@material-ui/core';
 
 function getModalStyle() {
     const top = 50 ;
@@ -25,16 +26,21 @@ const useStyles = makeStyles(theme => ({
       },
     paper: {
         position: 'absolute',
-        width: 600,
+        width: '80%',
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
+        padding: theme.spacing(2, 4, 3, 4),
         overflow: 'scroll',
         overflowX: 'hidden',
-        height: '100%',
-        maxHeight: 800,
+        height: '90%',
+        maxHeight: 'auto',
         display: 'block'
         },
+    none:{
+        border: 'none',
+        background: 'transparent',
+    }
+
         
 }));
 
@@ -108,20 +114,31 @@ const Receta = ({receta}) => {
                         }}
                     >
                         <Fade in={open}>
-                            <div style={modalStyle} className={classes.paper}>
-                                <h2 id="transition-modal-title">{informacion.strDrink}</h2>
-                                <div id="transition-modal-description" className="mt-4">
-                                    <h3>Instrucciones</h3>
-                                    <p>
-                                        {informacion.strInstructions}
-                                    </p>
-
-                                    <img className="img-fluid my-4" src={informacion.strDrinkThumb} />
-
-                                    <h3>Ingredientes y cantidades</h3>
-                                    <ul>
-                                        {mostrarIngredientes(informacion)}
-                                    </ul>
+                            <div style={modalStyle} className={`${classes.paper} container`}>
+                                <div className="row justify-content-end">
+                                    <div className="col-1">
+                                        <button type="button" className={classes.none} onClick={handleClose}>
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-12 mb-2"><h2 id="transition-modal-title col-12">{informacion.strDrink}</h2></div>
+                                </div>
+                                <div className="rounded row transition-modal-description">
+                                        <div className="col-md-8 col-xl-8 col-sm-12 text-center mt-2">
+                                            <img className="rounded img-fluid" src={informacion.strDrinkThumb} />
+                                        </div>
+                                        <div className= "col-md-4 col-xl-4 col-sm-12 mt-2">
+                                            <h3>Instrucciones</h3>
+                                            <p>
+                                                {informacion.strInstructions}
+                                            </p>
+                                            <h3>Ingredientes y cantidades</h3>
+                                            <ul>
+                                                {mostrarIngredientes(informacion)}
+                                            </ul>
+                                        </div>
                                 </div>
                             </div>
                          </Fade>
